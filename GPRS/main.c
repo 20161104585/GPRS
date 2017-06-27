@@ -10,10 +10,13 @@
 int main()
 {
     FILE *fp=fopen("//Users//a20161104585//Desktop//GPRS//GPRS//GPS170510.log", "r");
-    int i;
+    int i,a,b,c;
     char g1[63];
     char g2[70];
-    char lat[8];
+    char lat[8];//纬度
+    char lng[9];//经度
+    char time[6];//时间
+    char alt[4];//海拔
     if(fp==NULL)
     {
         printf("文件读取错误，请检查文件GPS170510.log是否存在!");
@@ -26,9 +29,27 @@ int main()
             for(i=0;i<8;i++)
             {
                 lat[i]=g1[i+16];
-                //lat[8]='0';
+                lat[8]='\0';
             }
-            printf("%s\n",lat);
+            printf("纬度：%s\n",lat);
+            for(a=0;a<9;a++)
+            {
+                lng[a]=g1[a+27];
+                lng[9]='\0';
+            }
+            printf("经度：%s\n",lng);
+            for(b=0;b<6;b++)
+            {
+                time[b]=g1[b+51];
+                time[6]='\0';
+            }
+            printf("时间：%s\n",time);
+            for(c=0;c<4;c++)
+            {
+                alt[c]=g2[c+43];
+                alt[4]='\0';
+            }
+            printf("海拔：%s\n",alt);
         }
     }
     fclose(fp);
