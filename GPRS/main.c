@@ -10,6 +10,7 @@
 int main()
 {
     FILE *fp=fopen("//Users//a20161104585//Desktop//GPRS//GPRS//GPS170510.log", "r");
+    FILE *fp1=fopen("//Users//a20161104585//Desktop//GPRS/GPRS//output.txt", "r+");
     int i,a,b,c;
     char g1[63];
     char g2[70];
@@ -32,24 +33,28 @@ int main()
                 lat[8]='\0';
             }
             printf("纬度：%s\n",lat);
+            fprintf(fp1,"纬度：%s\t",lat);
             for(a=0;a<9;a++)
             {
                 lng[a]=g1[a+27];
                 lng[9]='\0';
             }
             printf("经度：%s\n",lng);
+            fprintf(fp1,"经度：%s\t",lng);
             for(b=0;b<6;b++)
             {
                 time[b]=g1[b+51];
                 time[6]='\0';
             }
             printf("时间：%s\n",time);
+            fprintf(fp1,"时间：%s\t",time);
             for(c=0;c<4;c++)
             {
                 alt[c]=g2[c+43];
                 alt[4]='\0';
             }
             printf("海拔：%s\n",alt);
+            fprintf(fp1,"海拔：%s\n",alt);
         }
     }
     fclose(fp);
