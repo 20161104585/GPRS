@@ -12,7 +12,7 @@ int main()
     FILE *fp=fopen("//Users//a20161104585//Desktop//GPRS//GPRS//GPS170510.log", "r");
     FILE *fp1=fopen("//Users//a20161104585//Desktop//GPRS/GPRS//output.csv", "r+");
     int i,a,b,c,d;
-    int h1,h2,m1,m2,s1,s2,Y1,Y2,M1,M2,D1,D2;
+    int h1,h2,m1,m2,s1,s2,Y1,Y2,M1,M2,D1,D2;//定义时分秒，年月日
     char g1[63];
     char g2[70];
     char lat[9];//纬度
@@ -33,6 +33,7 @@ int main()
         while(fscanf(fp,"%s%s",g1,g2)!=EOF)
         {
             printf("%s\n%s\n",g1,g2);
+            //输出纬度到屏幕和文件，
             for(i=0;i<8;i++)
             {
                 lat[i]=g1[i+16];
@@ -48,7 +49,7 @@ int main()
             printf("纬度：%s‘%s\n",lat1,lat2);
             fprintf(fp1,"纬度：%s‘%s,",lat1,lat2);
             
-            
+            //输出经度到屏幕和文件，
             for(a=0;a<9;a++)
             {
                 lng[a]=g1[a+27];
@@ -65,7 +66,7 @@ int main()
             printf("经度：%s‘%s\n",lng1,lng2);
             fprintf(fp1,"经度：%s’%s,",lng1,lng2);
             
-            
+            //输出日期到屏幕和文件，
             for(b=0;b<6;b++)
             {
                 day[b]=g1[b+51];
@@ -80,7 +81,7 @@ int main()
             printf("日期：%d%d年%d%d月%d%d日\n",Y1,Y2,M1,M2,D1,D2);
             fprintf(fp1,"日期：%d%d年%d%d月%d%d日,",Y1,Y2,M1,M2,D1,D2);
             
-            
+            //输出时间到屏幕和文件，
             for(d=0;d<2;d++)
             {
                 time[d]=g1[d+7];
@@ -100,7 +101,7 @@ int main()
             printf("时间：%d时%d%d分%d%d秒\n",h2,m1,m2,s1,s2);
             fprintf(fp1,"时间：%d时%d%d分%d%d秒,",h2,m1,m2,s1,s2);
             
-            
+            //输出海拔到屏幕和文件，
             for(c=0;c<4;c++)
             {
                 alt[c]=g2[c+43];
