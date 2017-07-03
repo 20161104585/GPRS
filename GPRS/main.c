@@ -30,6 +30,7 @@ int main()
     }
     else
     {
+        fprintf(fp1,"纬度,经度,日期,时间,海拔\n");
         while(fscanf(fp,"%s%s",g1,g2)!=EOF)
         {
             printf("%s\n%s\n",g1,g2);
@@ -47,7 +48,7 @@ int main()
             lat2[3]=lat[6];
             lat2[4]=lat[7];
             printf("纬度：%s‘%s\n",lat1,lat2);
-            fprintf(fp1,"纬度：%s‘%s,",lat1,lat2);
+            fprintf(fp1,"%s‘%s,",lat1,lat2);
             
             //输出经度到屏幕和文件，
             for(a=0;a<9;a++)
@@ -64,7 +65,7 @@ int main()
             lng2[3]=lng[7];
             lng2[4]=lng[8];
             printf("经度：%s‘%s\n",lng1,lng2);
-            fprintf(fp1,"经度：%s’%s,",lng1,lng2);
+            fprintf(fp1,"%s’%s,",lng1,lng2);
             
             //输出日期到屏幕和文件，
             for(b=0;b<6;b++)
@@ -79,7 +80,7 @@ int main()
             D1=day[0]-'0';
             D2=day[1]-'0';
             printf("日期：%d%d年%d%d月%d%d日\n",Y1,Y2,M1,M2,D1,D2);
-            fprintf(fp1,"日期：%d%d年%d%d月%d%d日,",Y1,Y2,M1,M2,D1,D2);
+            fprintf(fp1,"%d%d年%d%d月%d%d日,",Y1,Y2,M1,M2,D1,D2);
             
             //输出时间到屏幕和文件，
             for(d=0;d<2;d++)
@@ -99,7 +100,7 @@ int main()
             s1=time[2]-'0';
             s2=time[3]-'0';
             printf("时间：%d时%d%d分%d%d秒\n",h2,m1,m2,s1,s2);
-            fprintf(fp1,"时间：%d时%d%d分%d%d秒,",h2,m1,m2,s1,s2);
+            fprintf(fp1,"%d时%d%d分%d%d秒,",h2,m1,m2,s1,s2);
             
             //输出海拔到屏幕和文件，
             for(c=0;c<4;c++)
@@ -108,7 +109,7 @@ int main()
                 alt[4]='\0';
             }
             printf("海拔：%sm\n",alt);
-            fprintf(fp1,"海拔：%sm\n",alt);
+            fprintf(fp1,"%sm\n",alt);
         }
     }
     fclose(fp);
